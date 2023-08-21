@@ -2,23 +2,23 @@
 using namespace std;
 
 int main() {
-    int N;
-    cin >> N; // Read the input natural number N
 
-    // Print the prime divisors along with their exponents
-    for (int i = 2; i <= N; ++i) {
-        if (N % i == 0) {
+    int N, factN=1, k;
+    cin >> N; 
+    for (k = 1; k <= N; k++) {
+        factN = factN * k;
+    }
+
+    for (int i = 2; i <= factN; ++i) {
+        if (factN % i == 0) {
             int exponent = 0;
-
-            // Count the exponent of the prime divisor 'i'
-            while (N % i == 0) {
-                N /= i;
+            while (factN % i == 0) {
+                factN /= i;
                 ++exponent;
             }
 
             cout << i << "^" << exponent << " ";
         }
     }
-
     return 0;
 }
