@@ -2,23 +2,19 @@
 using namespace std;
 
 int main() {
-
-    int N, factN=1, k;
+    int N;
     cin >> N; 
-    for (k = 1; k <= N; k++) {
-        factN = factN * k;
-    }
 
-    for (int i = 2; i <= factN; ++i) {
-        if (factN % i == 0) {
-            int exponent = 0;
-            while (factN % i == 0) {
-                factN /= i;
-                ++exponent;
-            }
-
+    for (int i = 2; i <= N; ++i) {
+        int exponent = 0;
+        while (N % i == 0) {
+            N /= i;
+            ++exponent;
+        }
+        if(exponent > 0){
             cout << i << "^" << exponent << " ";
         }
     }
+
     return 0;
 }
