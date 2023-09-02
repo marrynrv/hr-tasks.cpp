@@ -6,9 +6,9 @@ int main() {
     cin >> N;
     for (int i = 1; i * i <= N; ++i) {
         for (int j = i + 1; j * j <= N; ++j) {
-            int square = i * i + j * j;
-            if (square <= N) {
-                cout << i << "^2 + " << j << "^2 = " << square << endl;
+            int sumOfSquare = i * i + j * j;
+            if (sumOfSquare <= N) {
+                cout << i << "^2 + " << j << "^2 = " << sumOfSquare << endl;
             }
         }
     }
