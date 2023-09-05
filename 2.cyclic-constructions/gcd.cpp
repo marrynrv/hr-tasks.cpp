@@ -1,4 +1,4 @@
-/* #include <iostream>
+#include <iostream>
 using namespace std;
 
 
@@ -12,8 +12,8 @@ int main() {
     }
     cout << a;
     return 0;
-} */
-
+}
+/* 
 #include <iostream>
 
 int main() {
@@ -39,4 +39,4 @@ int main() {
     std::cout << gcd << std::endl;
 
     return 0;
-}
+} */

@@ -4,44 +4,31 @@ using namespace std;
 
 int main() {
     int M, N;
-    cin >> M >> N; // Input the range [M, N] for which we want to find friendly pairs
+    int n1; 
+    
+    cin >> M >> N;
 
-    // Loop through the range of numbers from M to N
-    for (int a = M; a <= N; ++a) {
-        int sumDivisorsA = 1; // Initialize sum of divisors for 'a' (including 1 as a divisor)
+    for (int n1 = M; n1 <= N; ++n1) {
+        int n2 = 0;
 
-        // Calculate sum of divisors for 'a'
-        for (int i = 2; i * i <= a; ++i) {
-            if (a % i == 0) {
-                sumDivisorsA += i;
-                if (i != a / i) { // If the number is not a perfect square. You dont have to count the divisor twice.
-                    sumDivisorsA += a / i; 
-                }
+        for (int d = 1; d <= n1/2; ++d) {
+            if (n1 % d == 0) {
+                n2 = n2 + d;
             }
         }
+        int sum = 0;
 
-        int b = sumDivisorsA; // Calculate 'b' using the sum of divisors of 'a'
-
-        // Check if 'b' is within the range and its sum of divisors equals 'a'
-        if (b > a && b <= N) {
-            int sumDivisorsB = 1; // Initialize sum of divisors for 'b' (including 1 as a divisor)
-
-            // Calculate sum of divisors for 'b'
-            for (int i = 2; i * i <= b; ++i) {
-                if (b % i == 0) {
-                    sumDivisorsB += i;
-                    if (i != b / i) { // The same for B. You dont have to count the divisor twice.
-                        sumDivisorsB += b / i;
-                    }
+        if (n2 > n1 && n2 <= N) {
+            for (int d = 1; d <= n2/2; ++d) {
+                if (n2 % d == 0) {
+                    sum = sum + d;
                 }
             }
 
-            // If the sum of divisors of 'b' equals 'a', print the friendly pair
-            if (sumDivisorsB == a) {
-                cout << "(" << a << ", " << b << ")" << endl; // Print the friendly pair (a, b)
-            }
+        }
+        if (sum == n1) {
+            cout << "(" << n1 << ", " << n2 << ")" << endl; 
         }
     }
-
     return 0;
 }

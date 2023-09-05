@@ -10,30 +10,20 @@ int main() {
         bool is_next_prime = true;
 
         // Check if 'num' is prime
-        if (num <= 1) {
-            is_num_prime = false;
-        }
-        else {
-            for (int i = 2; i*i <= num; ++i) { // To determine if a number is prime, you only need to check divisors up to the square root of the number. 
-                                                // If there are no divisors smaller than or equal to the square root, there won't be any divisors larger than the square root either.
-                if (num % i == 0) {
-                    is_num_prime = false;
-                    break;
-                }
+
+        for (int i = 2; i*i <= num; ++i) { // To determine if a number is prime, you only need to check divisors up to the square root of the number.                                 // If there are no divisors smaller than or equal to the square root, there won't be any divisors larger than the square root either.
+            if (num % i == 0) {
+                is_num_prime = false;
+                break;
             }
         }
 
-        // Check if 'num + 2' is prime
-        if (num + 2 <= N) {
-            for (int i = 2; i*i<= num + 2; ++i) {
-                if ((num + 2) % i == 0) {
-                    is_next_prime = false;
-                    break;
-                }
+    // Check if 'num + 2' is prime
+        for (int i = 2; i*i<= num + 2; ++i) {
+            if ((num + 2) % i == 0) {
+                is_next_prime = false;
+                break;
             }
-        }
-        else {
-            is_next_prime = false;
         }
 
         // Check if 'num' and 'num + 2' are twin primes

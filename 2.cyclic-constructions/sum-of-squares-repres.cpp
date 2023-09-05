@@ -15,3 +15,13 @@ int main() {
 
     return 0;
 }
+
+/* 
+int a=1;
+int b= a+1;
+for(a=1;a*a<=N-b*b;a++) {
+    for(b = a+1;b*b<=N;++b){
+
+    }
+    b = a+1;
+} */
