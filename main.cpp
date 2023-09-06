@@ -1,35 +1,25 @@
 #include <iostream>
-#include <cstring>
+using namespace std;
 
 int main() {
-    char str1[100];
-    char str2[100];
-    char* s1;
-    char* s2;
+    int n;
+    cin >> n;
 
-    // Ask the user to enter two strings
-    std::cin.getline(str1, 100);
-    std::cin.getline(str2, 100);
+    long long endingWithZero = 1;
+    long long notEndingWithZero = 9;
 
-    // Assign memory addresses to the pointers s1 and s2
-    s1 = str1;
-    s2 = str2;
-
-    // Determine the length of the first string
-    int len1 = strlen(s1);
-
-    // Iterate through the second string and concatenate it to the end of the first string
-    while(*s2 != '\0') {
-        s1[len1] = *s2;
-        len1++;
-        s2++;
+    if (n == 1) {
+        cout << 10 << endl;  // For n = 1, there are 10 single-digit numbers.
+    } else {
+        for (int i = 2; i <= n; i++) {
+            long long newEndingWithZero = notEndingWithZero;
+            long long newNotEndingWithZero = (endingWithZero + notEndingWithZero) * 9;
+            endingWithZero = newEndingWithZero;
+            notEndingWithZero = newNotEndingWithZero;
+        }
+        
+        cout << endingWithZero + notEndingWithZero << endl;
     }
-
-    // Add a null character to terminate the concatenated string
-    s1[len1] = '\0';
-
-    // Display the concatenated string
-    std::cout << "Concatenated string: " << str1 << std::endl;
 
     return 0;
 }
