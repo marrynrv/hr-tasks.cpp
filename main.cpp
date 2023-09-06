@@ -1,24 +1,66 @@
-#include <iostream>
+/* #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
-    int a,b,c;
+    int n;
+    int copyNum;
     int count=0;
-    bool containZero=false;
-    for(int i = 100; i < 1000; i++) {
-        bool containZero=false;
-        a = i / 100;
-        b = (i % 100) / 10;
-        c = i % 10;
-        if(a == b || b == c){
-            containZero=true;
-        }else{
+    cin>>n;
+    for(int i = pow(10, n-1); i < pow(10, n); i++){
+        copyNum = i;
+        bool idNums = false;
+        int lastDigit = copyNum % 10;
+        copyNum /= 10;
+
+        while(copyNum > 0){
+            int digit = copyNum % 10; 
+
+            if(digit == lastDigit){
+                bool idNums = true;
+                break;
+            }
+            lastDigit = digit;
+            copyNum /= 10;
+        }
+        if(idNums == false){
             count++;
         }
     }
-    if(containZero==false){
-        cout<<count<<endl;
+    cout<<count;
+    return 0;
+} */
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int count = 0;
+
+    for (int i = pow(10, n - 1); i < pow(10, n); i++) {
+        int copyNum = i;
+        bool isIdNums = false;
+        int lastDigit = copyNum % 10;
+        copyNum /= 10;
+
+        while (copyNum > 0) {
+            int digit = copyNum % 10;
+
+            if (digit == lastDigit) {
+                isIdNums = true;
+                break;
+            }
+            lastDigit = digit;
+            copyNum /= 10;
+        }
+        if (isIdNums == false) {
+            count++;
+        }
     }
-    // o(1)
+    cout << count;
+
     return 0;
 }
