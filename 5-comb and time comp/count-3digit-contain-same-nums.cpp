@@ -4,19 +4,19 @@ using namespace std;
 int main() {
     int a,b,c;
     int count=0;
-    bool containZero=false;
+    bool containIdNums=false;
     for(int i = 100; i < 1000; i++) {
-        bool containZero=false;
+        bool containIdNums=false;
         a = i / 100;
         b = (i % 100) / 10;
         c = i % 10;
         if(a == b || b == c){
-            containZero=true;
+            containIdNums=true;
         }else{
             count++;
         }
     }
-    if(containZero==false){
+    if(containIdNums==false){
         cout<<count<<endl;
     }
     // o(1)
