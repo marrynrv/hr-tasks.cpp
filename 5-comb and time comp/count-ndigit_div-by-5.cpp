@@ -13,6 +13,7 @@ int main() {
             count++;
         }
     }
+    // o(10^n)
     cout << count;
     return 0;
 }
