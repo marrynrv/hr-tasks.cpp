@@ -3,18 +3,18 @@
 using namespace std;
 
 int main() {
-    int m,n;
+    int n;
     int sumOfMain = 0;
     int sumOfSecondary = 0;
-    cin >> m >> n;
-    int matrix[m][n];
-    for(int i=0;i<m;i++){
+    cin >>n;
+    int matrix[n][n];
+    for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             cin>>matrix[i][j];
         }
     }
 
-    for(int i=0;i<m;i++){
+    for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             if(j==i){
                 sumOfMain += matrix[i][j];
