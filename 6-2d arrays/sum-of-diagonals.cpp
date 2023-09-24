@@ -25,7 +25,6 @@ int main() {
         }
     }
 
-
     cout<<sumOfMain+sumOfSecondary;
     return 0;
 }
