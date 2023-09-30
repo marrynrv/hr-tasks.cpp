@@ -1,31 +1,39 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-    int matrix[n][n];
-    
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
+    int** matrix = new int* [n];
+
+    for (int i = 0; i < n; ++i) {
+        matrix[i] = new int[n];
+    }
+
+    cout << "Enter the elements of the matrix:" << endl;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             cin >> matrix[i][j];
         }
     }
-    
-    int upperSum = 1;
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            if (i < n / 2 && j < n / 2 && i != j) {
-                upperSum += matrix[i][j];
-            }
-            // Handle the extra diagonal element when n is odd
-            if (n % 2 == 1 && i == j && i < n / 2) {
+
+    int upperSum = 0;
+    for (int i = 0; i < n / 2; i++) {
+        for (int j = i + 1; j < n - i - 1; j++) {
+            if (i != j) {
                 upperSum += matrix[i][j];
             }
         }
     }
-    
-    cout << upperSum << endl;
+
+
+    cout << "Sum of the upper quarter: " << upperSum << endl;
+
+    for (int i = 0; i < n; ++i) {
+        delete[] matrix[i];
+    }
+
+    delete[] matrix;
     return 0;
 }
