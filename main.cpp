@@ -26,14 +26,22 @@ int main() {
             }
         }
     }
+   int downSum = 0;
+    for (int i = n / 2; i < n; i++) {
+        for (int j = n - i; j < i; j++) {
+            downSum += matrix[i][j];
+        }
+    }
 
 
     cout << "Sum of the upper quarter: " << upperSum << endl;
-
+    cout << "Sum of the down quarter: " << downSum << endl;
+    
     for (int i = 0; i < n; ++i) {
         delete[] matrix[i];
     }
 
     delete[] matrix;
+
     return 0;
 }
