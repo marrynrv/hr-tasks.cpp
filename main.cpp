@@ -21,9 +21,7 @@ int main() {
     int upperSum = 0;
     for (int i = 0; i < n / 2; i++) {
         for (int j = i + 1; j < n - i - 1; j++) {
-            if (i != j) {
-                upperSum += matrix[i][j];
-            }
+            upperSum += matrix[i][j];
         }
     }
    int downSum = 0;
@@ -33,9 +31,19 @@ int main() {
         }
     }
 
+    int leftSum = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (j < i) {
+                leftSum += matrix[i][j];
+            }
+        }
+    }
+
 
     cout << "Sum of the upper quarter: " << upperSum << endl;
     cout << "Sum of the down quarter: " << downSum << endl;
+    cout << "Sum of the left quarter: " << leftSum << endl;
     
     for (int i = 0; i < n; ++i) {
         delete[] matrix[i];
