@@ -21,14 +21,7 @@ int main() {
     for (int i = 0; i < n / 2; i++) {
         for (int j = i + 1; j < n - i - 1; j++) {
             swap(matrix[i][j], matrix[n - i - 1][j]);
-            //up to down
-        }
-    }
-    for (int i = 1; i < n - 1; i++) {
-        for (int j = 0; j < n / 2; j++) {
-            if (j < i && j < n - i - 1) {
-                swap(matrix[i][j], matrix[i][n - j - 1]);
-            }
+            swap(matrix[j][i], matrix[j][n - i - 1]);
         }
     }
 
